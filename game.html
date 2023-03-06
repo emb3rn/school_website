@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="styles.css">
+    <title>Bug Invaders</title>
+
+<body>
+    
+    <div class="nav-group">
+        <a href="./register.html" class="button">Register</a>
+        <a href="./login.html" class="button">Login</a>
+        <a id="title">Bug Invaders</button>  
+        <a href="game.html" class="button">Play Game</a> 
+        <a href="file:///N:/JavascriptWebsite/website/register.html" class="button">Info</a>
+    </div>
+    <button onclick=StartGame() id="start_button">Start Game</button>
+    <div class="gameWindow" id="mainWindow">
+        <!--<img src="./rsz_fatty.jpeg" id="image0" onclick=ClickOperation()><br> -->
+    </div>
+
+</body>
+
+<script>
+    let last_image;
+    let recent_image = document.getElementById("first_image");
+    let image_index = 1;
+
+    function ClickOperation(){
+        image_index = image_index + 1;
+        var x = Math.floor((Math.random() * 850) + 350);
+        var y = Math.floor((Math.random() * 500)-200);
+
+        const image = document.createElement("img");
+        image.id = ("image" + image_index);
+        image.src = "./rsz_fatty.jpeg";
+        image.style.width = "200px";
+        image.style.height = "200px";
+        image.style.position = "absolute";
+        image.style.right = x + "px";
+        image.style.bottom = y + "px";
+        image.onclick = ClickOperation;
+
+        document.getElementById("mainWindow").appendChild(image);
+        document.getElementById("image" + (image_index-1)).remove();
+
+    }
+
+    function StartGame(){
+        ClickOperation();
+        document.getElementById("start_button").remove
+    }
+</script>
+
+</html>
+
+
+
+
